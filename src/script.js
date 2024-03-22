@@ -7,7 +7,7 @@ const simpleGit = require('simple-git');
 export function checkRepo(input) {
     downloadRepository(input);
 }
-// https://github.com/MKaae/quickbook_exam_backend
+
 async function downloadRepository(input) {
     try {
         if (!fs.existsSync(downloadDir)) {
