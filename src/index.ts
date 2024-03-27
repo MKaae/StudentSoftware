@@ -1,5 +1,5 @@
 import { QMainWindow, QWidget, QLabel, FlexLayout, QPushButton, QLineEdit, QDialog, QScrollArea } from '@nodegui/nodegui';
-import { checkRepo } from "./script";
+import { checkRepo } from "./repoCheck";
 
 const win = new QMainWindow();
 win.setWindowTitle("Student codechecker");
