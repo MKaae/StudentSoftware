@@ -1,4 +1,4 @@
-import { searchFindingsJava, formatResultsJava } from "./javaCheck.js";
+import { searchFindingsJava, formatResultsJava } from "./javaCheck";
 const fs = require('fs');
 const path = require('path');
 const downloadDir = path.join(__dirname, 'temp_repo');
@@ -54,6 +54,9 @@ async function traverseDirectory(directoryPath: string) {
                                 searchFindingsJava(filePath);
                             }
                             if (filePath.endsWith('.properties')) {
+                                searchFindingsJava(filePath);
+                            }
+                            if (filePath.endsWith('.xml')) {
                                 searchFindingsJava(filePath);
                             }
                             resolve(void 0);
