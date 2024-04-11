@@ -95,7 +95,6 @@ export async function formatResultsJava(){
             "spring-boot-maven-plugin": `"spring-boot-maven-plugin:" ${springBootMavenPlugin}`
         };
 
-        // Process lines except artifact IDs
         lines.forEach((line: string)  => {
             const javaFileNameMatch = line.match(/\\([^\\]+\.java)/);
             if (javaFileNameMatch) {
@@ -126,7 +125,6 @@ export async function formatResultsJava(){
             data += line + '\n';
         });
 
-        // Process and replace artifact IDs or skip lines
         lines.forEach((line: string) => {
             const artifactIdMatch = line.match(/Artifact ID "(.*?)"/);
             if (artifactIdMatch) {
@@ -135,7 +133,6 @@ export async function formatResultsJava(){
                     const replacement = replacements[artifactId as keyof typeof replacements];
                     data = data.replace(`Artifact ID "${artifactId}"`, `${replacement}`);
                 } else {
-                    // Skip lines with artifact IDs not present in the replacements list
                     console.error(`Artifact ID "${artifactId}" does not correlate with any specified replacements. Skipping...`);
                     data = data.replace(new RegExp(`Artifact ID "${artifactId}"\\n`, "g"), "");
                 }
@@ -160,3 +157,5 @@ const springSecurityTest = "\nSpring Security encourages writing tests to verify
 const springBootStarterSecurity = "\nWith spring-boot-starter-security, developers can easily implement authentication and\n authorization mechanisms in their applications. It supports various\n authentication methods such as form-based authentication, HTTP basic authentication, OAuth, and more.\n";
 const h2 = "\nH2 is a lightweight, in-memory database engine that is commonly used for development and testing purposes.\n It allows developers to quickly spin up a database instance without requiring any external dependencies or setup.\n";
 const springBootMavenPlugin = "\nspring-boot-maven-plugin is to package Spring Boot applications for deployment.\n It allows developers to create executable JAR or WAR files that contain\n all the necessary dependencies to run the application.\n";
+
+

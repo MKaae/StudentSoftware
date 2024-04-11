@@ -2,13 +2,14 @@
   "name": "nodegui-starter",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Atul R <atulanand94@gmail.com>",
+  "author": "MKaae",
   "license": "MIT",
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack && qode ./dist/index.js",
-    "debug": "webpack && qode --inspect ./dist/index.js"
+    "debug": "webpack && qode --inspect ./dist/index.js",
+    "package": "node ./node_modules/@nodegui/packer/dist/index.js"
   },
   "dependencies": {
     "@nodegui/nodegui": "^0.57.1",
